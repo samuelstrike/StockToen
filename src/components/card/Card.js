@@ -19,6 +19,7 @@ const Card = () => {
     const [txs, setTxs] = useState([]); 
     const [contractListened, setContractListened] = useState();   
 
+
     useEffect(()=>{
         connectWallet()
         getContract()

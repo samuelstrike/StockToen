@@ -9,7 +9,7 @@ export default function TxList({ txs }) {
                         <p>From: {item.from}</p>
                         <p>To: {item.to}</p>
                         <p>Amount: {item.amount}</p>
-                        <a href={`https://ropsten.etherscan.io/tx/${item.txHash}`} >
+                        <a href={`https://sepolia.etherscan.io/tx/${item.txHash}`} >
                             Check in block explorer
                         </a>
                     </div>

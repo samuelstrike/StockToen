@@ -12,6 +12,7 @@ export const StockProvider =  ({children}) => {
     const [error, setError] = useState('');
     const [connButtonText, setConnButtonText] = useState('Connect Wallet');
     const [currentAccount, setCurrentAccount] = useState('')
+    const [tokenBalance, setTokenBalance] = useState('')
     const [contractInfo, setContractInfo] = useState({
 
         tokenName: "-",
@@ -54,6 +55,7 @@ export const StockProvider =  ({children}) => {
         const tokenSymbol = await erc20.symbol();
         const total = await erc20.totalSupply();
         const totalSupply = total.toString()
+        
 
         setContractInfo({
             tokenName,
@@ -125,7 +127,8 @@ export const StockProvider =  ({children}) => {
             isLoading,
             transferToken,
             burnToken,
-            burnFromSpecificAddress
+            burnFromSpecificAddress,
+            tokenBalance
         }}>
             {children}
         </StockContext.Provider>

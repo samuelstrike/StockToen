@@ -10,14 +10,12 @@ const Owner = ({ contractInfo, isLoading, transferToken, txs, burnToken, burnFro
     const handleTransfer = (e) =>{
         e.preventDefault()
         transferToken(transferAccount,tokenAmount)
+        e.target.reset();
     }
     const handleBurn = (e) => {
         e.preventDefault()
         burnToken(tokenAmount)
-    }
-    const handleBurnFromSpecificAddress = (e) => {
-        e.preventDefault()
-        burnFromSpecificAddress(transferAccount,tokenAmount)
+        e.target.reset();
     }
    
     return ( 
@@ -28,15 +26,15 @@ const Owner = ({ contractInfo, isLoading, transferToken, txs, burnToken, burnFro
                 <div className="flex justify-between">
                     <div className="flex space-x-4">
                         <div className='font-extrabold'>Stock Name</div>
-                        <div>{contractInfo.tokenName}</div>
+                        <div className='text-orange-400 font-black'>{contractInfo.tokenName}</div>
                     </div>
                     <div className="flex space-x-4">
                         <div className='font-extrabold'>Stock Symbol</div>
-                        <div>{contractInfo.tokenSymbol}</div>
+                        <div className='text-orange-400 font-black'>{contractInfo.tokenSymbol}</div>
                     </div>
                     <div className="flex space-x-4">
                         <div className='font-extrabold'>Total Supply</div>
-                        <div>{contractInfo.totalSupply} in <b>Wei</b></div>
+                        <div className='text-orange-400 font-black'>{contractInfo.totalSupply} in <span className='text-black'>Wei</span></div>
                     </div>
                 </div>
             </div>
@@ -54,7 +52,7 @@ const Owner = ({ contractInfo, isLoading, transferToken, txs, burnToken, burnFro
                                     <input
                                         type="text"
                                         name="amount"
-                                        className="input input-bordered block w-full focus:ring focus:outline-none"
+                                        className="input input-bordered block w-full focus:ring focus:outline-none focus:rounded-sm"
                                         placeholder="Nos of token to be burnt"
                                         onChange={(e) => setTokenAmount(e.target.value)}
                                         required
@@ -82,7 +80,7 @@ const Owner = ({ contractInfo, isLoading, transferToken, txs, burnToken, burnFro
                                     <input
                                         type="text"
                                         name="recipient"
-                                        className="input input-bordered block w-full focus:ring focus:outline-none"
+                                        className="input input-bordered block w-full focus:ring focus:outline-none focus:rounded-sm"
                                         placeholder="Recipient address"
                                         onChange={(e) => setTransferAccount(e.target.value)}
                                         required
@@ -92,7 +90,7 @@ const Owner = ({ contractInfo, isLoading, transferToken, txs, burnToken, burnFro
                                     <input
                                         type="text"
                                         name="amount"
-                                        className="input input-bordered block w-full focus:ring focus:outline-none"
+                                        className="input input-bordered block w-full focus:ring focus:outline-none focus:rounded-sm"
                                         placeholder="Amount to transfer"
                                         onChange={(e) => setTokenAmount(e.target.value)}
                                         required
